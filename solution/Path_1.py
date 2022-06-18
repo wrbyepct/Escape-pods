@@ -9,5 +9,5 @@ path = [
     [0, 0, 0, 0, 0, 0, 5, 5],  # Room 4: Intermediate room, max = 10
     [0, 0, 0, 20, 0, 0, 0, 20],  # Room 5: Intermediate room, max = 20
     [0, 0, 0, 0, 0, 0, 0, 0],  # Room 6: Escape pods
-    [0, 0, 0, 0, 0, 0, 0, 0],  # Room 7: Escape pods
+    [0, 0, 0, 0, 0, 0, 0, 0]   # Room 7: Escape pods
 ]

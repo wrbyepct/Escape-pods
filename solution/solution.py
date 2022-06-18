@@ -1,6 +1,6 @@
 from collections import defaultdict
 import numpy as np
-from Path_2 import entrances, exits, path
+from Path_5 import entrances, exits, path
 
 SupplyRecords = defaultdict(int)
 
@@ -60,7 +60,7 @@ def solution(Start, End, Path):
                 still_need = Rx.still_need(asked)
                 if still_need == 0:
                     return Rx.cur_canGive
-                # Ake the amount that
+                # Ask the amount that quota allows
                 allow_by_rx = Path[rx][Rx.name]
                 ask_amount = still_need if still_need <= allow_by_rx else allow_by_rx
                 Rx.ask_one_in_DPs(rx, ask_amount)
@@ -146,8 +146,7 @@ def solution(Start, End, Path):
 
         def ask_one_in_DPs(self, rx, ask_amount):
             # Update the askers chain
-            askers_from_rx = []
-            askers_from_rx += self.askers
+            askers_from_rx = self.askers
             askers_from_rx.append(self.name)
 
             # Ask this provider
@@ -158,8 +157,6 @@ def solution(Start, End, Path):
             # Update quota of  Room x to Room X
             # If ask failed (amount = 0), means it's an invalid provider, block it
             Path[rx][self.name] = 0 if successfully_asked == 0 else Path[rx][self.name] - successfully_asked
-
-            return self.cur_canGive
 
     # Get the amount of rooms
     Rooms = len(Path[0])
